@@ -28,7 +28,7 @@ services:
     depends_on:
       - crm-db
     expose:
-      - 8000:8000
+      - "8000"
     networks:
       - nw
 
