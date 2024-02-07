@@ -11,7 +11,7 @@ services:
       - DBPORT=5432
 
       - SECRET_KEY=kfd83a9$mw#cj9@v9)ym!--1ksxz$=+e$+jlnj^ou10whke!l^
-      - ENV_TYPE=dev
+      - ENV_TYPE=prod
     depends_on:
       - crm-db
     ports:
