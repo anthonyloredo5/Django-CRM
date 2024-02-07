@@ -28,10 +28,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv()
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = 'kfd83a9$mw#cj9@v9)ym!--1ksxz$=+e$+jlnj^ou10whke!l^' #os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
 
 
 ALLOWED_HOSTS = ["*"]
@@ -75,6 +79,7 @@ INSTALLED_APPS = [
     "invoices",
     "events",
     "teams",
+    #"user"
 ]
 
 MIDDLEWARE = [
@@ -154,7 +159,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 
-TIME_ZONE = "Asia/Kolkata"
+TIME_ZONE = "America/New_York"
 
 USE_I18N = True
 
@@ -176,13 +181,14 @@ if ENV_TYPE == "dev":
 elif ENV_TYPE == "prod":
     from .server_settings import *
 
-DEFAULT_FROM_EMAIL = os.environ["DEFAULT_FROM_EMAIL"]
-ADMIN_EMAIL = os.environ["ADMIN_EMAIL"]
+## I dont KNow what thjis is ##
+# DEFAULT_FROM_EMAIL = os.environ["DEFAULT_FROM_EMAIL"]
+ADMIN_EMAIL = "anthonyloredo5@gmail.com"
 
 
-# celery Tasks
-CELERY_BROKER_URL = os.environ["CELERY_BROKER_URL"]
-CELERY_RESULT_BACKEND = os.environ["CELERY_RESULT_BACKEND"]
+# # celery Tasks
+# CELERY_BROKER_URL = os.environ["CELERY_BROKER_URL"]
+# CELERY_RESULT_BACKEND = os.environ["CELERY_RESULT_BACKEND"]
 
 
 LOGGING = {
@@ -307,7 +313,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
-DOMAIN_NAME = os.getenv("DOMAIN_NAME")
+# DOMAIN_NAME = os.getenv("DOMAIN_NAME")
+# DOMAIN_NAME = os.environ["DOMAIN_NAME"]
+# SWAGGER_ROOT_URL = os.environ["SWAGGER_ROOT_URL"]
 
 
 SIMPLE_JWT = {
@@ -330,5 +338,3 @@ SIMPLE_JWT = {
 JWT_ALGO = "HS256"
 
 
-DOMAIN_NAME = os.environ["DOMAIN_NAME"]
-SWAGGER_ROOT_URL = os.environ["SWAGGER_ROOT_URL"]
