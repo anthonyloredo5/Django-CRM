@@ -31,7 +31,7 @@ load_dotenv()
 SECRET_KEY = 'kfd83a9$mw#cj9@v9)ym!--1ksxz$=+e$+jlnj^ou10whke!l^' #os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
