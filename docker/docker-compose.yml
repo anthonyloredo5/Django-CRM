@@ -1,7 +1,7 @@
 version: '3'
 services:
   crm-app:
-    image: djcrm:1
+    image: djangocrm:1
     container_name: crm-app
     environment:
       - DBNAME=crm
@@ -10,6 +10,8 @@ services:
       - DBHOST=crm-db
       - DBPORT=5432
 
+      - SECRET_KEY=kfd83a9$mw#cj9@v9)ym!--1ksxz$=+e$+jlnj^ou10whke!l^
+      - ENV_TYPE=dev
     depends_on:
       - crm-db
     ports:
