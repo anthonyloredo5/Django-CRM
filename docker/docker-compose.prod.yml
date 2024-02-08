@@ -1,14 +1,6 @@
 version: '3'
 
 services:
-  nginx:
-    build: ./nginx
-    volumes:
-      - static_volume:/home/app/web/staticfiles
-    ports:
-      - 80:80
-    depends_on:
-      - crm-app
 
   crm-app:
     image: djangocrm:1
@@ -45,6 +37,15 @@ services:
       - /var/run/postgresql/:/var/run/postgresql
     networks:
       - nw
+  
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+    ports:
+      - 80:80
+    depends_on:
+      - crm-app
 
 volumes:
   postgres_data:
