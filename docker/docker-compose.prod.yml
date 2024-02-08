@@ -20,7 +20,7 @@ services:
     depends_on:
       - crm-db
     ports:
-      - 8000:8000
+      - 8000:80
     networks:
       - nw
 
@@ -36,7 +36,7 @@ services:
     volumes:
       - /var/run/postgresql/:/var/run/postgresql
     networks:
-      - nw
+     - nw
   
   nginx:
     build: ./nginx
