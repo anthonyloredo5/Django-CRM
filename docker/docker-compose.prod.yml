@@ -19,8 +19,8 @@ services:
       - ENV_TYPE=dev
     depends_on:
       - crm-db
-    expose:
-      - "8000:80"
+    ports:
+      - 8000:8000
     networks:
       - nw
 
