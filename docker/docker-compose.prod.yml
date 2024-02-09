@@ -65,4 +65,5 @@ volumes:
   static_volume:
   
 networks:
+  nw:
   main:
