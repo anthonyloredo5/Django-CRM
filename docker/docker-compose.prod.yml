@@ -20,7 +20,7 @@ services:
     depends_on:
       - crm-db
     ports:
-      - 8000:80
+      - 8000:8000
     networks:
       main:
           aliases:
@@ -46,7 +46,7 @@ services:
     volumes:
       - static_volume:/home/app/web/staticfiles
     ports:
-      - 80:80
+      - 1337:80
     links:
       - crm-app:crm-app
     depends_on:
