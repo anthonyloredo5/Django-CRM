@@ -46,7 +46,6 @@ services:
   
   nginx:
     build: ./nginx
-    command: sleep 30
     volumes:
       - static_volume:/home/app/web/staticfiles
     ports:
