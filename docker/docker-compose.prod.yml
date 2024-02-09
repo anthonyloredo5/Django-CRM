@@ -19,8 +19,7 @@ services:
       - ENV_TYPE=dev
     depends_on:
       - crm-db
-      - nginx:
-          condition: service_healthy
+      - nginx
     ports:
       - 8000:8000
     networks:
@@ -52,7 +51,8 @@ services:
     links:
       - crm-app:crm-app
     depends_on:
-      - crm-app
+      - crm-app:
+          condition: service_healthy
     networks:
       main:
           aliases:
