@@ -30,6 +30,7 @@ services:
       - 8000:8000
     networks:
       - nw
+      
   crm-db:
     image: postgres:latest
     container_name: crm-db
@@ -50,15 +51,13 @@ services:
       - static_volume:/home/app/web/staticfiles
     ports:
       - 1337:80
-    links:
-      - crm-app:crm-app
     depends_on:
       crm-app:
-          condition: service_healthy
-    networks:
-      main:
-          aliases:
-              - ${HOSTNAME}
+        condition: service_healthy
+    # networks:
+    #   main:
+    #       aliases:
+    #           - ${HOSTNAME}
 
 volumes:
   postgres_data:
