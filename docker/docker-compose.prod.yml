@@ -19,7 +19,6 @@ services:
       - ENV_TYPE=dev
     depends_on:
       - crm-db
-      - nginx
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/"]
       interval: 60s
@@ -30,7 +29,7 @@ services:
       - 8000:8000
     networks:
       - nw
-      
+
   crm-db:
     image: postgres:latest
     container_name: crm-db
@@ -47,13 +46,13 @@ services:
   
   nginx:
     build: ./nginx
+    command: sleep 30
     volumes:
       - static_volume:/home/app/web/staticfiles
     ports:
       - 1337:80
     depends_on:
-      crm-app:
-        condition: service_healthy
+      - crm-app
     # networks:
     #   main:
     #       aliases:
