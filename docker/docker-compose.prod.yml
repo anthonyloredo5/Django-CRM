@@ -53,10 +53,10 @@ services:
       - 1337:80
     depends_on:
       - crm-app
-    # networks:
-    #   main:
-    #       aliases:
-    #           - ${HOSTNAME}
+    networks:
+      main:
+          aliases:
+              - ${HOSTNAME}
 
 volumes:
   postgres_data:
