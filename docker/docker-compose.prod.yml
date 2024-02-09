@@ -22,8 +22,9 @@ services:
     ports:
       - 8000:80
     networks:
-      - nw
-
+      main:
+          aliases:
+              - crm-app
   crm-db:
     image: postgres:latest
     container_name: crm-db
@@ -36,7 +37,9 @@ services:
     volumes:
       - /var/run/postgresql/:/var/run/postgresql
     networks:
-     - nw
+      main:
+          aliases:
+              - crm-db
   
   nginx:
     build: ./nginx
@@ -44,12 +47,19 @@ services:
       - static_volume:/home/app/web/staticfiles
     ports:
       - 80:80
+    links:
+      - web:web
     depends_on:
       - crm-app
+    networks:
+      main:
+          aliases:
+              - nginx
 
 volumes:
   postgres_data:
   static_volume:
   
 networks:
-  nw: {}
+  nw: 
+  main:
