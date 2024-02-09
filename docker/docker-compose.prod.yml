@@ -53,7 +53,7 @@ services:
     links:
       - crm-app:crm-app
     depends_on:
-      - crm-app:
+      crm-app:
           condition: service_healthy
     networks:
       main:
