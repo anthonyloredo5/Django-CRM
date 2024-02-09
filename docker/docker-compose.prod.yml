@@ -48,7 +48,7 @@ services:
     ports:
       - 80:80
     links:
-      - web:web
+      - crm-app:crm-app
     depends_on:
       - crm-app
     networks:
